@@ -1,0 +1,4 @@
+{
+    "model": "Qwen/Qwen2.5-72B-Instruct",
+    "url": "https://api.studio.nebius.com/v1/chat/completions"
+}
