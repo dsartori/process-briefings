@@ -1,22 +1,26 @@
 # **Process Briefings**
 
 ## **Description**
-This project demonstrates how to prepare public data for **Retrieval-Augmented Generation (RAG)** using advanced AI models. The resulting output is designed to work with a local Large Language Model (LLM) setup on modest hardware. For context, check out the blog post on https://meanmedianmoose.ca. The configuration utilizes:
+This project demonstrates an approach to prepare public data for **Retrieval-Augmented Generation (RAG)** using advanced AI models. The resulting output is designed to work with a local Large Language Model (LLM) setup on modest hardware. For context, check out the blog post on https://meanmedianmoose.ca. 
+
+The configuration utilizes:
 - **Ollama** for model management.
 - **OpenWebUI** as the front-end interface.
 - **nginx** for secure communication.
 - **Docker** for containerizing the application and nginx.
 
 ### **Data Source**
-The demo data is based on a slightly cleaned version of the [Health Canada Deputy Minister Briefing Materials](https://www.canada.ca/en/health-canada/corporate/about-health-canada/proactive-disclosure/briefing-documents/2024-main-transition-e-binder.html) published by the Government of Canada. The goal is to create a tool that supports **natural-language queries** about the **structure, operations, strategic goals, and challenges** of Canada’s health ministry.
+The demo data is based on a slightly cleaned version of the [Health Canada Deputy Minister Briefing Materials](https://www.canada.ca/en/health-canada/corporate/about-health-canada/proactive-disclosure/briefing-documents/2024-main-transition-e-binder.html) published by the Government of Canada. 
 
 ### **Available Output**
+The goal is a tool that supports **natural-language queries** about the **structure, operations, strategic goals, and challenges** of Canada’s health ministry.
+
 Three processed outputs are included in this repository:
 - `dmbriefing_qwen2.5-14b.json`
 - `dmbriefing_qwen2.5-72b.json`
 - `dmbriefing_llama3.3.json`
 
-**Recommended Output**: Use `dmbriefing_qwen2.5-72b.json` for the best results. This file can be loaded into an LLM's knowledge base for optimal query responses.
+Use `dmbriefing_qwen2.5-72b.json` for the best results. This file can be loaded into an LLM's knowledge base for optimal query responses.
 
 ---
 
@@ -74,13 +78,6 @@ https://<your_device_ip_or_name>
 
 ---
 
-## **System Requirements**
-- **Ollama**: API for managing AI models.
-- **OpenWebUI**: User-friendly front-end interface.
-- **nginx**: SSL proxy for secure communication.
-- **Docker**: Containerization for the proxy and OpenWebUI.
-
----
 
 ## **License**
 This project is yours to use under the MIT License. See `LICENSE` for more details.

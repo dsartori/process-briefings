@@ -11,6 +11,11 @@ import re
 import os
 
 # Configure logging
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
+
+BASE_URL = config.get("BASE_URL", "https://api.studio.nebius.com/api/chat/completions")
+MODEL = config.get("MODEL", "Qwen2.5-14b:latest")
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Put your API key in a .env file in the same directory as this script
@@ -19,22 +24,19 @@ API_KEY = os.getenv("NEBIUS_API_KEY")
 if not API_KEY:
     raise ValueError("NEBIUS_API_KEY environment variable not set")
 
-# API configuration
-BASE_URL = "https://api.studio.nebius.com/v1/chat/completions" # v1 instead of api for nebius
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",
     "Content-Type": "application/json",
 }
 
 # function to call a large language model with the OpenAI API
-def call_llm(prompt, model="Qwen/Qwen2.5-72B-Instruct", raw_response=False):
+def call_llm(prompt, model=MODEL, raw_response=False):
     logging.debug(f"Calling LLM with prompt: {prompt}")
     payload = {
         "model": model,
         "messages":[{"role": "user", "content": prompt}, {"role": "system","content": "You are a helpful AI assistant, expert-level at generating summaries and data extraction. You always return JSON data in response to user prompts. You never add any additional content besides JSON."}],
     }
-    #logging.debug(f"Payload sent to LLM API: {json.dumps(payload, indent=2)}")
-
+    
     try:
         response = requests.post(BASE_URL, headers=HEADERS, json=payload, verify=False)
         response.raise_for_status()
