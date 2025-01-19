@@ -1,7 +1,7 @@
 # **Process Briefings**
 
 ## **Description**
-This project demonstrates an approach to prepare public data for **Retrieval-Augmented Generation (RAG)** using advanced AI models. The resulting output is designed to work with a local Large Language Model (LLM) setup on modest hardware. For context, check out the blog post on https://meanmedianmoose.ca. 
+This project demonstrates an approach to prepare public data for **Retrieval-Augmented Generation (RAG)** using advanced AI models. The resulting output is designed to work with a local Large Language Model (LLM) setup on modest hardware. For context, check out `Blog.md`, which is the relevant part from a blog post on https://meanmedianmoose.ca. 
 
 The configuration utilizes:
 - **Ollama** for model management.
